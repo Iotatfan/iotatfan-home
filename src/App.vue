@@ -1,22 +1,23 @@
 <template>
-  <home/>
+  <home />
 </template>
 
 <script>
-import Home from './components/Home.vue'
+import Home from "./components/Home.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Home
-  }
-}
+    Home,
+  },
+};
 
-    Home</script>
+Home;
+</script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Courier New", Courier, monospace !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -24,7 +25,7 @@ export default {
 }
 
 body {
-  background: #141518 !important;
+  background: #141518;
   margin: 0%;
 }
 </style>
