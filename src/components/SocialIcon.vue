@@ -1,0 +1,32 @@
+<template>
+  <a :href="link" class="mx-2">
+    <svg
+      role="img"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 512 512"
+      :width="size"
+      :height="size"
+      class="icon-glow fill-current text-white"
+    >
+      <path fill="#ffffff" :d="pathData"></path>
+    </svg>
+  </a>
+</template>
+
+<script>
+export default {
+  name: "SocialIcon",
+  props: ["pathData", "link", "size"],
+};
+</script>
+
+<style scoped>
+.icon-glow {
+  opacity: 0.75;
+  transition: 0.3s !important;
+}
+
+.icon-glow:hover {
+  opacity: 1;
+}
+</style>
