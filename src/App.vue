@@ -1,18 +1,14 @@
 <template>
-  <home />
+  <div id="nav">
+    <router-view />
+  </div>
 </template>
 
 <script>
-import Home from "./components/Home.vue";
-
 export default {
   name: "App",
-  components: {
-    Home,
-  },
+  components: {},
 };
-
-Home;
 </script>
 
 <style>
@@ -25,7 +21,7 @@ Home;
 }
 
 body {
-  background: #141518;
+  background: #23153c;
   margin: 0%;
 }
 </style>

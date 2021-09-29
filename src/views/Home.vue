@@ -1,33 +1,45 @@
 <template>
-  <div class="container-fluid flex-wrapper" ref="vantaRef">
-    <header>
-      <h1 id="fullname">MUHAMMAD IQBAL IMANI ATFAN</h1>
+  <div class="flex-wrapper" ref="vantaRef">
+    <header class="mx-5">
+      <h1 class="font-bold text-4xl md:text-5xl text-center text-white">
+        MUHAMMAD IQBAL IMANI ATFAN
+      </h1>
       <div>
-        <VueWriter :array="arr" caret="cursor"> </VueWriter>
+        <VueWriter
+          :array="arr"
+          caret="cursor"
+          class="mx-5 text-2xl md:text-4xl"
+        >
+        </VueWriter>
       </div>
     </header>
-    <div class="mx-auto flex flex-row mb-8">
-      <social-icon
-        v-for="(data, index) in socialIcon"
-        :key="index"
-        :pathData="data.pathData"
-        :link="data.link"
-        :size="data.size"
-      >
-      </social-icon>
-    </div>
+    <footer class="flex flex-col mb-8">
+      <portofolio />
+      <div class="flex flex-row mx-auto">
+        <social-icon
+          v-for="(data, index) in socialIcon"
+          :key="index"
+          :pathData="data.pathData"
+          :link="data.link"
+          :size="data.size"
+        >
+        </social-icon>
+      </div>
+    </footer>
   </div>
 </template>
 
 <script>
 import * as THREE from "three";
 import NET from "vanta/dist/vanta.net.min";
-import SocialIcon from "./SocialIcon.vue";
+import SocialIcon from "../components/SocialIcon.vue";
 import socialIconData from "../assets/socialIcon.json";
+import Portofolio from "../components/Portofolio.vue";
 
 export default {
   components: {
     SocialIcon,
+    Portofolio,
   },
   data() {
     return {
@@ -36,8 +48,14 @@ export default {
         "I'm currently unemployed",
         "I love playing games",
       ],
+      showPortofolio: false,
       socialIcon: socialIconData,
     };
+  },
+  methods: {
+    togglePortofolio() {
+      this.showPortofolio = !this.showPortofolio;
+    },
   },
   mounted() {
     this.vantaEffect = NET({
@@ -63,12 +81,12 @@ export default {
   justify-content: space-between;
 }
 
-.icon-glow {
+.glow {
   opacity: 0.75;
   transition: 0.3s !important;
 }
 
-.icon-glow:hover {
+.glow:hover {
   opacity: 1;
 }
 
