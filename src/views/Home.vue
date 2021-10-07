@@ -8,7 +8,7 @@
         <VueWriter
           :array="arr"
           caret="cursor"
-          class="mx-5 text-2xl md:text-4xl"
+          class="mx-5 text-2xl md:text-3xl font-semibold text-white"
         >
         </VueWriter>
       </div>
@@ -16,40 +16,44 @@
     <footer class="flex flex-col mb-8">
       <portofolio />
       <div class="flex flex-row mx-auto">
-        <social-icon
-          v-for="(data, index) in socialIcon"
-          :key="index"
-          :pathData="data.pathData"
-          :link="data.link"
-          :size="data.size"
-        >
-        </social-icon>
+        <github-icon />
+        <linked-in-icon />
+        <email-icon />
       </div>
     </footer>
   </div>
 </template>
 
 <script>
+import { defineAsyncComponent } from "vue";
 import * as THREE from "three";
 import NET from "vanta/dist/vanta.net.min";
-import SocialIcon from "../components/SocialIcon.vue";
-import socialIconData from "../assets/socialIcon.json";
-import Portofolio from "../components/Portofolio.vue";
+import GithubIcon from "../components/icons/GithubIcon.vue";
+import LinkedInIcon from "../components/icons/LinkedInIcon.vue";
+import EmailIcon from "../components/icons/EmailIcon.vue";
+
+const Portofolio = defineAsyncComponent(() =>
+  import("../components/PortofolioOverlay.vue")
+);
 
 export default {
   components: {
-    SocialIcon,
     Portofolio,
+    GithubIcon,
+    LinkedInIcon,
+    EmailIcon,
   },
-  data() {
+  setup() {
+    const arr = [
+      "I'm programmer",
+      "I'm currently unemployed",
+      "I love playing games",
+    ];
+    let showPortofolio = false;
+
     return {
-      arr: [
-        "I'm programmer",
-        "I'm currently unemployed",
-        "I love playing games",
-      ],
-      showPortofolio: false,
-      socialIcon: socialIconData,
+      arr,
+      showPortofolio,
     };
   },
   methods: {
@@ -91,18 +95,11 @@ export default {
 }
 
 .is-typed {
-  font-size: 32px;
   font-family: "Courier New", Courier, monospace !important;
 }
 
 .is-typed span.typed {
   color: white !important;
-  font-weight: bold;
-}
-
-#fullname {
-  font-weight: bold !important;
-  font-size: 56px;
 }
 
 header {

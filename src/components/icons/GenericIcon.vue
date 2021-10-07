@@ -1,5 +1,5 @@
 <template>
-  <a :href="link" class="mx-2">
+  <a :href="link" disabled class="mx-2">
     <svg
       role="img"
       xmlns="http://www.w3.org/2000/svg"
@@ -16,7 +16,7 @@
 
 <script>
 export default {
-  name: "SocialIcon",
+  name: "Generic Icon",
   props: ["pathData", "link", "size"],
 };
 </script>

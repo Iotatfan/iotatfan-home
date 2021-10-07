@@ -5,9 +5,6 @@ module.exports = {
     extend: {
       colors: {
         violet: '#912A5E'
-      },
-      height: {
-        screen60: '60vh'
       }
     },
   },
