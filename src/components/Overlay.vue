@@ -48,16 +48,7 @@
               "
             >
               <div class="flex lg:flex-row flex-col justify-around mt-5">
-                <img
-                  class="
-                    object-scale-down
-                    max-h-72
-                    xl:max-h-80
-                    2xl:max-h-96
-                    rounded-xl
-                  "
-                  :src="portoData[0].image"
-                />
+                <carousel :images="portoData[0].images" />
                 <div class="flex flex-col mt-5 xl:mt-0 ml-0 xl:ml-5 lg:w-5/12">
                   <DialogTitle
                     as="h3"
@@ -94,10 +85,14 @@
                       xl:justify-start
                     "
                   >
-                    <text-button :text="`Visit`" />
-                    <p class="text-center text-3xl text-white font-extrabold">
-                      -
-                    </p>
+                    <website-icon
+                      :link="portoData[0].link.site"
+                      :class="{
+                        'pointer-events-none': portoData[0].link.site
+                          ? true
+                          : false,
+                      }"
+                    />
                     <github-icon
                       :link="portoData[0].link.repo"
                       :class="{
@@ -109,8 +104,10 @@
                   </div>
                 </div>
               </div>
-              <div class="mt-4 flex flex-row justify-center glow">
+              <div class="mt-4 flex flex-row justify-around glow">
+                <text-button :text="`Previous`" />
                 <text-button @click="hidePortofolio" :text="`Close`" />
+                <text-button :text="`Next`" />
               </div>
             </div>
           </TransitionChild>
@@ -131,6 +128,8 @@ import {
 import TextButton from "./TextButton.vue";
 import PortoData from "../assets/porto.json";
 import GithubIcon from "./icons/GithubIcon.vue";
+import Carousel from "./Carousel.vue";
+import WebsiteIcon from "./icons/WebsiteIcon.vue";
 
 export default {
   name: "Overlay",
@@ -142,6 +141,8 @@ export default {
     TransitionRoot,
     TextButton,
     GithubIcon,
+    Carousel,
+    WebsiteIcon,
   },
   setup() {
     const isOpen = ref(false);

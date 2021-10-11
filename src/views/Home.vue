@@ -33,7 +33,7 @@ import LinkedInIcon from "../components/icons/LinkedInIcon.vue";
 import EmailIcon from "../components/icons/EmailIcon.vue";
 
 const Portofolio = defineAsyncComponent(() =>
-  import("../components/PortofolioOverlay.vue")
+  import("../components/Overlay.vue")
 );
 
 export default {

@@ -2,7 +2,10 @@
     {
         "name": "Work In Progress",
         "detail": "This section is for detail of the project",
-        "image": "https://c.tenor.com/dRV2Swgf5iUAAAAd/hu-tao-genshin.gif",
+        "images": [
+            "https://c.tenor.com/eMJAPhxxtvIAAAAd/hutao-hu.gif",
+            "https://c.tenor.com/dRV2Swgf5iUAAAAd/hu-tao-genshin.gif"
+        ],
         "link": {
             "repo": "null",
             "site": "null"
