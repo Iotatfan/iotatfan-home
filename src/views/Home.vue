@@ -26,7 +26,7 @@
 
 <script>
 import { defineAsyncComponent } from "vue";
-import * as THREE from "three";
+import * as THREE from "three/build/three.min";
 import NET from "vanta/dist/vanta.net.min";
 import GithubIcon from "../components/icons/GithubIcon.vue";
 import LinkedInIcon from "../components/icons/LinkedInIcon.vue";
@@ -49,18 +49,12 @@ export default {
       "I'm currently unemployed",
       "I love playing games",
     ];
-    let showPortofolio = false;
 
     return {
       arr,
-      showPortofolio,
     };
   },
-  methods: {
-    togglePortofolio() {
-      this.showPortofolio = !this.showPortofolio;
-    },
-  },
+  methods: {},
   mounted() {
     this.vantaEffect = NET({
       el: this.$refs.vantaRef,

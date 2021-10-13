@@ -1,44 +1,44 @@
 <template>
-  <input
-    class="carousel-open"
-    :id="`carousel-${idx}`"
-    type="radio"
-    name="carousel"
-    aria-hidden="true"
-    hidden=""
-    checked
-  />
-  <img
-    class="
-      carousel-item
-      absolute
-      opacity-0
-      object-scale-down
-      max-h-56
-      xl:max-h-80
-      2xl:max-h-96
-      rounded-xl
-      bg-center
-    "
-    :src="image"
-  />
+  <div>
+    <input
+      class="carousel-open"
+      :id="`carousel-${idx}`"
+      type="radio"
+      name="carousel"
+      aria-hidden="true"
+      hidden=""
+      checked
+    />
+    <img
+      class="
+        carousel-item
+        absolute
+        opacity-0
+        object-scale-down
+        max-h-56
+        xl:max-h-80
+        2xl:max-h-96
+        rounded-xl
+        bg-center
+      "
+      :src="image"
+    />
+  </div>
 </template>
 
 <script>
-// import { toRefs } from "@vue/reactivity";
-
 export default {
   name: "Carousel Item",
-  props: ["image", "idx"],
-  //   setup(props) {
-  //     const { idx, last } = toRefs(props);
-  //     const prev = idx.value > 0 ? idx.value - 1 : last.value;
-  //     const next = idx.value > last.value ? last.value : idx.value + 1;
-  //     return {
-  //       prev,
-  //       next,
-  //     };
-  //   },
+  props: {
+    image: {
+      type: String,
+      default: null,
+    },
+    idx: {
+      type: Number,
+      default: 0,
+    },
+  },
 };
 </script>
 
