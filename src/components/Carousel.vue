@@ -38,7 +38,12 @@ import CarouselItem from "./CarouselItem.vue";
 export default {
   name: "Carousel",
   components: { CarouselItem },
-  props: { images: Array, default: [] },
+  props: {
+    images: {
+      type: Array,
+      default: null,
+    },
+  },
   setup(props) {
     const { images } = toRefs(props);
     const last = images.value.length - 1;

@@ -13,7 +13,12 @@
 <script>
 export default {
   name: "Text Button",
-  props: ["text"],
+  props: {
+    text: {
+      type: String,
+      default: "Placeholder Text"
+    }
+  },
 };
 </script>
 
